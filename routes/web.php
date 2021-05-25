@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
+});
+
+
 //課題４
 //admin/profile/create にアクセスしたら 
 //ProfileController のadd Action に割り当てる
