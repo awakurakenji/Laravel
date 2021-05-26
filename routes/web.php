@@ -19,23 +19,21 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
 });
 
-//課題４
+
 //admin/profile/create にアクセスしたら 
 //ProfileController のadd Action に割り当てる
 Route::group(['prefix' => 'admin'], function() {
-Route::get('profile/create', 'Admin\ProfileController@add');
+Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
 });
 
 //admin/profile/edit にアクセスしたら 
 //ProfileController の edit Action に割り当てる
 Route::group(['prefix' => 'admin'], function() {
-Route::get('profile/edit', 'Admin\ProfileController@edit');
+Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 ?>
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
