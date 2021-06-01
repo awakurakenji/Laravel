@@ -26,14 +26,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 //ProfileController のadd Action に割り当てる
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::post('profile/create', 'Admin\ProfileController@create');
+    Route::post('profile/create', 'Admin\NewsController@create');
 });
 
 
 //admin/profile/edit にアクセスしたら 
 //ProfileController の edit Action に割り当てる
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
+    Route::get('profile/edit', 'Admin\ProfileController@edit'); 
     Route::post('profile/edit', 'Admin\ProfileController@create');
 });
 
