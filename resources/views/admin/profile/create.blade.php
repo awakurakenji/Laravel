@@ -19,24 +19,34 @@
                             @endforeach
                         </ul>
                         @endif
-                        <div class="form-group row">
-                            <label class="col-md-2">性別(gender)</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" nome="title" value="{{ old('title') }}">
-                        </div>
-                    </div>
                     <div class="form-group row">
-                        <label class="col-nd-2">趣味(hobby)</label>
+                        <label class="col-md-2">氏名(name)</label>
                         <div class="col-md-10">
-                        <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
-                    </div>
+                    </div>      
+                        
                     <div class="form-group row">
-                        <label class="col=md-2">自己紹介(introduction)</label>
-                        <div class="clo-md-10">
-                          <input type="file" class="form-control-file" name="image">
+                        <label class="col-md-2">性別(gender)</label>
+                        <div class="col-md-10">
+                        <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">趣味(hobby)</label>
+                        <div class="col-md-10">
+                        <textarea class="form-control" name="hobby" rows="20">{{ old('hobby') }}</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">自己紹介(introduction)</label>
+                        <div class="col-md-10">
+                        <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
+                        </div>
+                    </div>
+                    
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>

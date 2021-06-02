@@ -19,24 +19,28 @@
                             @endforeach
                         </ul>
                     @endif
+                    
                     <div class="form-group row">
                         <label class="col-md-3">タイトル</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-3">本文</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-5">画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
+                    
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
