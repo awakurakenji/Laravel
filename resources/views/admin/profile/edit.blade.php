@@ -17,27 +17,27 @@
                     <div class="form-group row">
                         <label class="col-md-2">>氏名(name)</label>
                         <div class="col-md-10">
-                         <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                         <input type="text" class="form-control" name="name" value="{{ $profile_form->name}}">
                         </div>
                     </div>
                      <div class="form-group row">
                         <label class="col-md-2">性別(gender)</label>
                         <div class="col-md-10">
-                        <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
+                        <input type="text" class="form-control" name="gender" value="{{ $profile_form->gender}}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-2">趣味(hobby)</label>
                         <div class="col-md-10">
-                        <textarea class="form-control" name="hobby" rows="20">{{ old('hobby') }}</textarea>
+                        <textarea class="form-control" name="hobby" rows="20">{{ $profile_form->hobby }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介(introduction)</label>
                         <div class="col-md-10">
-                        <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
+                        <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
                         </div>
                     </div>    
                            
@@ -49,39 +49,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="admin-news col-md-12 mx-auto">
-                <div class="row">
-                    <table class="table table-dark">
-                        <thead>
-                            <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
-                                <th width="10%">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($posts as $profile)
-                                <tr>
-                                    <th>{{ $news->id }}</th>
-                                    <td>{{ str_limit($$profile->title, 100) }}</td>
-                                    <td>{{ str_limit($$profile->body, 250) }}</td>
-                                    <td>
-                                        <div>
-                                            <a href="{{ action('Admin\profileController@edit', ['id' => $profile->id]) }}">編集</a>
-                                        </div>
-                                        <div>
-                                            <a href="{{ action('Admin\profileController@delete', ['id' => $profile->id]) }}">削除</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

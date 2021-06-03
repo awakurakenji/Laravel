@@ -15,21 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//admin/profile/create にアクセスしたら 
-//ProfileController のadd Action に割り当てる
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::post('profile/create', 'Admin\NewsController@create');
-});
 
 //admin/profile/edit にアクセスしたら 
 //ProfileController の edit Action に割り当てる
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
-    Route::post('profile/edit', 'Admin\ProfileController@create')->middleware('auth');
-    Route::get('profile/edit', 'Admin\profileController@edit')->middleware('auth'); // 追記
-    Route::post('profile/edit', 'Admin\profileController@update')->middleware('auth'); // 追記
-    Route::get('profile/delete', 'Admin\profileController@delete')->middleware('auth');
+    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'Admin\ProfileController@create')->middleware('auth');
+    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth'); // 追記
+    Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth'); // 追記
+    Route::get('profile/delete', 'Admin\ProfileController@delete')->middleware('auth');
 });
 
 
