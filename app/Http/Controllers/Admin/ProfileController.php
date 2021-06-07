@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
+use App\History;
+
 class ProfileController extends Controller
 {
         public function add()
@@ -68,6 +70,15 @@ class ProfileController extends Controller
       $profile->fill($profile_form)->save();
       return redirect('admin/profile');
     }
+    
+        $history = new History;
+        $history->profile_id = $profile->id;
+        $history->edited_at = Carbon::now();
+        $history->save();
+
+        return redirect('admin/profile/');
+    }
+
       // 以下を追記　　
   public function delete(Request $request)
     {
