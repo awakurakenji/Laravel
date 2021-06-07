@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
-use App\History;
+use App\pfhistory;
 
 class ProfileController extends Controller
 {
@@ -68,11 +68,10 @@ class ProfileController extends Controller
       unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
-      return redirect('admin/profile');
-    }
     
-        $history = new History;
-        $history->profile_id = $profile->id;
+    
+        $history = new $pfhistory;
+        $history->pfrofile_id = $pfhistory->id;
         $history->edited_at = Carbon::now();
         $history->save();
 

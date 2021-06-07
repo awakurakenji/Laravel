@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Pfofile extends Model
 {
     protected $guarded = array('id');
 
@@ -16,9 +16,9 @@ class Profile extends Model
         'introduction'=> 'required',
     );
     
-        public function histories()
+        public function pfhistories()
     {
-      return $this->hasMany('App\History');
+      return $this->hasMany('App\pfhistory');
 
     }
 
