@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
-use App\pfhistory;
+use App\Pfhistory;
+
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -70,8 +72,8 @@ class ProfileController extends Controller
       $profile->fill($profile_form)->save();
     
     
-        $history = new $pfhistory;
-        $history->pfrofile_id = $pfhistory->id;
+        $history = new Pfhistory;
+        $history->profile_id = $profile->id;
         $history->edited_at = Carbon::now();
         $history->save();
 

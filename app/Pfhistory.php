@@ -9,7 +9,7 @@ class Pfhistory extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'pfhistory_id' => 'required',
+        'profile_id' => 'required',
         'edited_at' => 'required',
     );
 }

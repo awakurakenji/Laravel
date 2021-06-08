@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pfofile extends Model
+class Profile extends Model
 {
     protected $guarded = array('id');
 
@@ -18,7 +18,7 @@ class Pfofile extends Model
     
         public function pfhistories()
     {
-      return $this->hasMany('App\pfhistory');
+      return $this->hasMany('App\Pfhistory');
 
     }
 
