@@ -13,7 +13,7 @@ class CreatePfhistoriesTable extends Migration
      */
     public function up()
     {
-      Schema::create('pfhistories', function (Blueprint $table) {
+        Schema::create('pfhistories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('profile_id');
             $table->string('edited_at');

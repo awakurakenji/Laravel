@@ -19,10 +19,8 @@ class ProfileController extends Controller
      public function create(Request $request)
     {
 
-       //以下を追記
         //varidationを行う 
         $this->validate($request, Profile::$rules);
-
         $profile = new Profile;
         $form = $request->all();
 
@@ -49,6 +47,7 @@ class ProfileController extends Controller
       return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
+    
      // 以下を追記
     public function edit(Request $request)
     {
@@ -70,7 +69,6 @@ class ProfileController extends Controller
       unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
-    
     
         $history = new Pfhistory;
         $history->profile_id = $profile->id;
